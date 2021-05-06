@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e pkucloud-4g4cwu484d9e8de3 --n functions --r  --project C:\Users\mryao\WeChatProjects\pkucloud && "C:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e wepku-9gjzbn5x35d75538 --n functions --r  --project C:\Users\mryao\WeChatProjects\pkucloud
