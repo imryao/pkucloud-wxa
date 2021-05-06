@@ -9,7 +9,9 @@ cloud.init();
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-    const wxContext = cloud.getWXContext()
+    const wxContext = cloud.getWXContext();
+    const { OPENID, APPID, UNIONID, CLIENTIP, CLIENTIPV6 } = wxContext;
+    const { scene } = event;
 
     return {
         event,
