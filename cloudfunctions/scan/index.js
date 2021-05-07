@@ -13,6 +13,20 @@ exports.main = async (event, context) => {
     const { OPENID, APPID, UNIONID, CLIENTIP, CLIENTIPV6 } = wxContext;
     const { scene } = event;
 
+    await apiGatewayRequest({
+        wxAppId: APPID,
+        method: 'POST',
+        host: 'service-4rma2gcr-1302919916.bj.apigw.tencentcs.com',
+        path: '/api/scan',
+        body: {
+            wxaOpenId: OPENID,
+            wxUnionId: UNIONID,
+            wxaIp: CLIENTIP,
+            wxaIpv6: CLIENTIPV6,
+            scene,
+        }
+    })
+
     return {
         event,
         openid: wxContext.OPENID,

@@ -11,7 +11,22 @@ cloud.init();
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext();
     const { OPENID, APPID, UNIONID, CLIENTIP, CLIENTIPV6 } = wxContext;
-    const { scene } = event;
+    const { scene, uin, clientId, scope } = event;
+
+    await apiGatewayRequest({
+        wxAppId: APPID,
+        method: 'POST',
+        host: 'service-4rma2gcr-1302919916.bj.apigw.tencentcs.com',
+        path: '/api/authorize',
+        body: {
+            wxaOpenId: OPENID,
+            wxUnionId: UNIONID,
+            wxIp: CLIENTIP,
+            wxIpv6: CLIENTIPV6,
+            uin,
+            scene,
+        }
+    })
 
     return {
         event,
